@@ -10,20 +10,20 @@ import java.util.List;
 
 public class Main {
 
-     private static final int MINUTES = 20;
-     private static final String URL = "http://sunwell-back.herokuapp.com/";
+    private static final int MINUTES = 10;
+    private static final String URL = "http://sunwell-back.herokuapp.com/";
     //  public static final String URL = "http://localhost:8080/";
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
         List<Online> todayOnline = new ArrayList<Online>();
         while (true) {
-            for (int i = 0; i < 18; i++) {
-                Online on = OnlineParser.parse();
-                todayOnline.add(on);
-                System.out.println("Online saved: Feronis = " + on.getFeronis() + ", Angrathar = " + on.getAngrathar());
-                Thread.sleep(1000 * 60 * MINUTES);
-            }
+            //    for (int i = 0; i < 1; i++) {
+            Online on = OnlineParser.parse();
+            todayOnline.add(on);
+            System.out.println("Online saved: Feronis = " + on.getFeronis() + ", Angrathar = " + on.getAngrathar());
+            Thread.sleep(1000 * 60 * MINUTES);
+            //   }
 
             Call<Void> call = ((Api) RetrofitBuilder.getService(Api.class, URL)).sendOnline(todayOnline);
             System.out.println("Sending request...");
