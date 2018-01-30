@@ -9,7 +9,7 @@ public class Online {
 
     int feronis;
     int angrathar;
-    String date;
+    Date date;
 
     public int getFeronis() {
         return feronis;
@@ -27,11 +27,11 @@ public class Online {
         this.angrathar = angrathar;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }
